@@ -5,41 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
     @if (String.IsNullOrWhiteSpace(ViewData["Title"].ToString()))
     {
-        <title>Shoe Store</title>
+    <title>Shoe Store</title>
     }
     else
     {
-        <title>@ViewData["Title"] - Shoe Store</title>
+    <title>@ViewData["Title"] - Shoe Store</title>
     }
 
     <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
     <link rel="stylesheet" href="~/css/site.css" />
 
-    <environment exclude="Development">
+    <environment include="Development">
     </environment>
 
-    @*<environment exclude="Development">
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-                  asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-                  asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-                  asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-                  asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-            <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
-        </environment>*@
+    <environment exclude="Development">
+    </environment>
 </head>
 
 <body class="pb-0 mb-0">
 
-    <nav class="navbar navbar-md-expand fixed-top navbar-dark bg-dark">
-        <div class="container-fluid bg-dark">
-            <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand font-weight-bolder">SHOES</a>
-            <form class="form-inline mt-2 mt-md-0" role="search">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn my-2 my-sm-0" style="font-size: 110%" type="submit"><i class="fa fa-search text-white"></i></button>
-            </form>
-        </div>
+    <nav class="navbar fixed-top navbar-dark bg-dark pl-2">
+        <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand font-weight-bolder m-0 p-0">SHOES</a>
+        <form class="form-inline" role="search">
+            <div class="float-right input-group">
+                <label class="sr-only" for="search"></label>
+                <input id="search" class="rounded form-control" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn pl-1 pr-0 mx-0" type="submit"><i class="fa fa-search text-white"></i></button>
+            </div>
+        </form>
     </nav>
 
     <nav class="navbar navbar-expand-lg bg-light navbar-light mb-0 pb-0">
@@ -54,18 +48,18 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav mr-auto pull-right">
+                <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link border-right border-left">Men</a>
+                        <a class="nav-link ">Men</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link border-right">Women</a>
+                        <a class="nav-link ">Women</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link border-right">Kids</a>
+                        <a class="nav-link ">Kids</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link border-right">Sale</a>
+                        <a class="nav-link ">Sale</a>
                     </li>
                 </ul>
             </div>
@@ -81,63 +75,60 @@
     <div class="container-fluid m-0 p-0 body-content">
         @RenderBody()
         <nav class="navbar-expand container-fluid navbar-dark bg-dark text-white">
-            <div class="row py-0 my-0">
-                <div class="col-md-6">
-                    <p>Copyright &copy; Shoe Store 2019.</p>
-                </div>
-                <div class="col-md-6">
-                    <ul class="py-0 my-0 navbar-nav float-right">
-                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="About">Terms and Conditions</a></li>
-                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="FAQs">FAQ</a></li>
-                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="About">About Us</a></li>
-                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contact">Contact Us</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="row py-0 my-0">
-                <div class="col-md-6">
-                    <form class="form-inline mt-2 mt-md-0" role="search">
-                        <div class="input-group input-group-sm" style="width: 40%">
-                            <input class="form-control font-italic" type="text" placeholder="Enter email for newsletter" aria-label="Search">
-                            <div class="input-group-append">
-                                <button class="input-group-text my-2 my-sm-0" style="font-size: 120%" type="submit"><i class="fa fa-angle-right text-black font-weight-bolder"></i></button>
-                            </div>
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-12">
+                            Copyright &copy; Shoe Store 2019
                         </div>
-                    </form>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-lg-12">
+                            <form class="form-inline pt-2" role="search">
+                                <div class="input-group w-75">
+                                    <input class="form-control font-italic" type="text" placeholder="Enter email for newsletter" aria-label="Search">
+                                    <div class="input-group-append">
+                                        <button class="input-group-text" style="font-size: 120%" type="submit"><i class="fa fa-angle-right text-black font-weight-bolder"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <ul class="py-0 my-0 navbar-nav float-right">
-                        <li class="nav-item"><i class="fa fa-facebook text-white-50 p-2" style="font-size: 300%"></i></li>
-                        <li class="nav-item"><i class="fa fa-twitter text-white-50 p-2" style="font-size: 300%"></i></li>
-                        <li class="nav-item"><i class="fa fa-instagram text-white-50 p-2" style="font-size: 300%"></i></li>
-                        <li class="nav-item"><i class="fa fa-whatsapp text-white-50 p-2" style="font-size: 300%"></i></li>
-                    </ul>
+                <div class="col-12 col-lg-6">
+                    <div class="row py-0 my-0">
+                        <div class="col-12">
+                            <ul class="navbar-nav float-left float-lg-right flex-column flex-md-row flex-lg-row">
+                                <li class="nav-item"><a class="nav-link pl-0" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                                <li class="nav-item"><a class="nav-link pl-0" asp-area="" asp-controller="Home" asp-action="About">Terms and Conditions</a></li>
+                                <li class="nav-item"><a class="nav-link pl-0" asp-area="" asp-controller="Home" asp-action="FAQs">FAQ</a></li>
+                                <li class="nav-item"><a class="nav-link pl-0" asp-area="" asp-controller="Home" asp-action="About">About Us</a></li>
+                                <li class="nav-item"><a class="nav-link pl-0" asp-area="" asp-controller="Home" asp-action="Contact">Contact Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row py-0 my-0">
+                        <div class="col-12">
+                            <ul class="py-0 my-0 navbar-nav float-left float-lg-right">
+                                <li class="nav-item  pl-0"><i class="fa fa-facebook text-white-50 py-2 pl-0 pr-2" style="font-size: 300%"></i></li>
+                                <li class="nav-item"><i class="fa fa-twitter text-white-50 p-2" style="font-size: 300%"></i></li>
+                                <li class="nav-item"><i class="fa fa-instagram text-white-50 p-2" style="font-size: 300%"></i></li>
+                                <li class="nav-item"><i class="fa fa-whatsapp text-white-50 p-2" style="font-size: 300%"></i></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </nav>
     </div>
 
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/twitter-bootstrap/js/bootstrap.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
     <environment exclude="Development">
-        <script src="~/lib/jquery/jquery.js"></script>
-        <script src="~/lib/twitter-bootstrap/js/bootstrap.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
     <environment include="Development">
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
-                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                asp-fallback-test="window.jQuery"
-                crossorigin="anonymous"
-                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
-        </script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                crossorigin="anonymous"
-                integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd">
-        </script>
-        <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
 
     @RenderSection("Scripts", required: false)
